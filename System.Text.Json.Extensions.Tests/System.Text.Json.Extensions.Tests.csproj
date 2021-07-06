@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsUnitTest>true</IsUnitTest>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), .gitignore))\Build\Packaging.Common.props" />
+  <ItemGroup>
+    <ProjectReference Include="..\RamjotSingh.System.Text.Json.Extensions\RamjotSingh.System.Text.Json.Extensions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Encoders\TestJsons\Emoji.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Encodings.Web" Version="5.0.1" />
+  </ItemGroup>
+
+</Project>
